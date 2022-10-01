@@ -7,11 +7,7 @@ const Feed =() =>{
     const [ selectedCategory,setSelectedCategory ] =useState('New')
     const [videos ,setVideos] = useState([])
     useEffect(() => {
-    //    fetchData(`search?part=snippet&q=${selectedCategory}`).then( data=> {
-           
-    //        localStorage.setItem('videos_data',JSON.stringify(data.items))
-    //    })
-       setVideos(JSON.parse(localStorage.getItem('videos_data')))
+       fetchData(`search?part=snippet&q=${selectedCategory}`).then( data=>  setVideos(data?.items))
     }, [selectedCategory])
     
     return(
